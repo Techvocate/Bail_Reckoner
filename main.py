@@ -8,9 +8,8 @@ from time import time
 from prompt_library import Prompt
 from database import get_desc
 
-uri = "mongodb+srv://admin:Spl54Q4fcTTVfUmh@cluster0.mtfjbub.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
-
+uri = os.environ['MONGO_URI']
 client = MongoClient(uri, server_api=ServerApi('1'))
 
 acts = {
