@@ -9,7 +9,6 @@ from prompt_library import Prompt
 from database import get_desc
 
 uri = "mongodb+srv://admin:Spl54Q4fcTTVfUmh@cluster0.mtfjbub.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-os.environ["GEMINI_API_KEY"]="AIzaSyBhrVFnBD4i3AJADnn3iWuBtAcbUVjjBV0"
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 client = MongoClient(uri, server_api=ServerApi('1'))
