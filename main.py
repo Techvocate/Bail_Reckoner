@@ -9,6 +9,7 @@ from prompt_library import Prompt
 from database import get_desc
 
 uri = "mongodb+srv://admin:Spl54Q4fcTTVfUmh@cluster0.mtfjbub.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+os.environ["GEMINI_API_KEY"]="AIzaSyBhrVFnBD4i3AJADnn3iWuBtAcbUVjjBV0"
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 
 client = MongoClient(uri, server_api=ServerApi('1'))
@@ -57,9 +58,9 @@ class Reckoner:
         # collection_name = [acts[col] for col in collection_name]
         for collection_name, sections in data.items():
             print(collection_name, "llmparser")
+            print(sections)
             collection = client['Indian_Acts'][collection_name]
-            if sections: 
-                query = {'Section_Number': {'$in': sections}}
+            query = {'Section_Number': {'$in': sections}}
             result = collection.find(query)
             response = [res for res in result]
         
