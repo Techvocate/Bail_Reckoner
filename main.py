@@ -8,6 +8,8 @@ from time import time
 from prompt_library import Prompt
 from database import get_desc
 
+os.environ['MONGO_URI'] = "mongodb+srv://admin:Spl54Q4fcTTVfUmh@cluster0.mtfjbub.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 uri = os.environ['MONGO_URI']
 client = MongoClient(uri, server_api=ServerApi('1'))
@@ -36,7 +38,7 @@ class Reckoner:
         pass
 
     def llm(self, instruction:str):
-        return genai.GenerativeModel('gemini-1.5-flash', system_instruction=instruction)
+        return genai.GenerativeModel('gemini-2.5-flash', system_instruction=instruction)
     
 
     def fetch(self, collection_name: list, section_number: str):
