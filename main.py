@@ -8,7 +8,7 @@ from time import time
 from prompt_library import Prompt
 from database import get_desc
 
-genai.configure(api_key="AIzaSyACQ-nfh2nw2aUheh0IxIFX_5VQne0GzQc")
+genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 uri = os.environ['MONGO_URI']
 client = MongoClient(uri, server_api=ServerApi('1'))
 
