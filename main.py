@@ -60,9 +60,9 @@ class Reckoner:
             collection = client['Indian_Acts'][collection_name]
             query = {'Section_Number': {'$in': sections}}
             result = collection.find(query)
-            response = [res for res in result]
+            results[collection_name] = [res for res in result]
         
-        return response
+        return results
     
     def evaluator(self, input):
         model = self.llm(instruction=Prompt.evaluator)
